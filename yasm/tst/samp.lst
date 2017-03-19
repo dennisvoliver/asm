@@ -1,0 +1,11 @@
+     1                                 %line 1+1 samp.asm
+     2                                 [segment .data]
+     3                                 
+     4                                 [segment .bss]
+     5                                 
+     6                                 [segment .text]
+     7                                 [global _start]
+     8                                 _start:
+     9 00000000 B080                   mov al, -128
+    10 00000002 48C7C03C000000         mov rax, 60
+    11 00000009 CD80                   int 0x80

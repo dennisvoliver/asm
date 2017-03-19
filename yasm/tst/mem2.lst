@@ -1,0 +1,20 @@
+     1                                 %line 1+1 mem2.asm
+     2                                 [segment .data]
+     3 00000000 0000000000000000<rept>       a times 10 dq 0
+     4 00000050 7761777761776100       c db "wawwawa", 0
+     5                                 
+     6                                 [segment .bss]
+     7 00000000 <gap>                  b resw 5
+     8 0000000A <gap>                  d resq 1
+     9                                 
+    10                                 [segment .text]
+    11                                 [global main]
+    12                                 main:
+    13 00000000 55                      push rbp
+    14 00000001 4889E5                  mov rbp, rsp
+    15 00000004 4883EC10                sub rsp, 16
+    16 00000008 48892425[00000000]      mov [d], rsp
+    17                                 
+    18 00000010 31C0                    xor eax, eax
+    19 00000012 C9                      leave
+    20 00000013 C3                      ret
